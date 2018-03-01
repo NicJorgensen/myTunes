@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <!-- YOU WILL PROBABLY END UP WITH SOMETHING LIKE THIS -->
-    <itunes class="itunes"></itunes>
-    <my-tunes class="my-tunes"></my-tunes>
+    <itunes v-if="showItunes == true" class="itunes"></itunes>
+    <my-tunes v-if="showItunes == false" class="my-tunes"></my-tunes>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
   name: 'home',
   data () {
     return {
-      
+      showItunes: true
     }
   },
   components: {

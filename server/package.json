@@ -6,7 +6,7 @@
   "scripts": {
     "debug": "node index.js"
   },
-  "author": "",
+  "author": "Nic Jorgensen",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",

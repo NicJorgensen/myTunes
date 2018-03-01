@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 console.log('Be sure to put in your connection string!')
-var connectionString = "";
+var connectionString = "mongodb://music:music@ds012538.mlab.com:12538/mytunes";
 
 var connection = mongoose.connection;
 mongoose.connect(connectionString);
