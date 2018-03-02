@@ -1,7 +1,9 @@
 <template>
-    <div class="my-tunes">
-        <h1>List of MyTunes</h1>
-    </div>
+        <div class="mytunes row">
+                <div class="col-sm-12">
+                    <h1>myTunes Search</h1>
+                </div>
+            </div>
 </template>
 
 <script>
