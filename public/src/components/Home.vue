@@ -6,7 +6,7 @@
       </div>
       <div class="buttons col-sm-12">
         <button class="btn btn-block btn-primary" @click="showItunes = true">iTunes</button>
-        <button class="btn btn-block btn-secondary" @click="showItunes = false">myTunes</button>
+        <button class="btn btn-block btn-secondary" @click="showItunes = false, getMyTunes()">myTunes</button>
       </div>
     </div>
 
@@ -29,22 +29,28 @@
     components: {
       Itunes,
       MyTunes
+    },
+    methods: {
+      getMyTunes() {
+        this.$store.dispatch('getMyTunes')
+      }
     }
   }
 </script>
 
 
 <style>
-  div{
-    background-color: rgba(184, 199, 223, 0.7)
+  div {
+    background-color: rgb(183, 199, 224);
   }
 
-  .title{
+  .title {
     font-weight: 900;
     color: white;
+    text-shadow: 3px 2px 1px rgba(150, 150, 150, 1);
   }
 
-  .btn{
+  .btn {
     font-weight: 700
   }
 </style>

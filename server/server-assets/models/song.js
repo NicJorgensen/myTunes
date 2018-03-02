@@ -4,10 +4,12 @@ var ObjectId = mongoose.SchemaTypes.ObjectId;
 var schemaName = "Song"
 
 var schema = new Schema({
-    title: { type: String, required: true },
-    artist: { type: String, required: true },
-    album: { type: String, required: true },
-    playlistId: { type: ObjectId, ref: "Playlist", required: true }
+    trackName: { type: String, required: true },
+    artistName: { type: String, required: true },
+    collectionName: { type: String, required: true },
+    artworkUrl100: {type: String, required: true},
+    previewUrl: {type: String, required: true}
+    // playlistId: { type: ObjectId, ref: "Playlist", required: true }
 })
 
 module.exports = mongoose.model(schemaName, schema)
