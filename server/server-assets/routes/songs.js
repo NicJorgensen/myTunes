@@ -11,6 +11,15 @@ router.post("/mytunes/playlist", (req, res, next) => {
         .catch(next);
 });
 
+//VOTE ON A SONG
+router.put("/mytunes/playlist/songs/:id", (req, res, next) => {
+    Songs.findByIdAndUpdate(req.params.id, req.body)
+        .then(song => {
+            return res.send(song);
+        })
+        .catch(next)
+})
+
 // DELETE A SONG FROM THE PLAYLIST
 router.delete("/mytunes/playlist/songs/:id", (req, res, next) => {
     Songs.findByIdAndRemove(req.params.id)

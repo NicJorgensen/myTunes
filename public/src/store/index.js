@@ -19,13 +19,13 @@ var store = new vuex.Store({
       state.results = results
     },
     setMyTunes(state, results) {
+      results.sort(function (a, b) {
+        return b.vote - a.vote;
+      })
       state.myTunes = results
     },
     addMyTunes(state, results) {
       state.myTunes.push(results)
-    },
-    setNewMyTunes(state, results) {
-
     }
   },
   actions: {
@@ -50,23 +50,33 @@ var store = new vuex.Store({
     addToMyTunes({ commit, dispatch }, track) {
       //this will post to your server adding a new track to your tunes
       api.post("playlist", track)
-      .then(result => {
-        commit("addMyTunes", track)
-      })
-      .catch(err => { console.log(err) })
+        .then(result => {
+          commit("addMyTunes", track)
+        })
+        .catch(err => { console.log(err) })
     },
     removeFromMyTunes({ commit, dispatch }, track) {
       //Removes track from the database with delete
       api.delete('playlist/songs/' + track._id)
-      .then(result => {
-        dispatch("getMyTunes")
-      })
+        .then(result => {
+          dispatch("getMyTunes")
+        })
     },
-    promoteTrack({ commit, dispatch }, track) {
+    upVote({ commit, dispatch }, track) {
       //this should increase the position / upvotes and downvotes on the track
+      track.vote++
+      api.put('playlist/songs/' + track._id, track)
+        .then(result => {
+          dispatch("getMyTunes")
+        })
     },
-    demoteTrack({ commit, dispatch }, track) {
+    downVote({ commit, dispatch }, track) {
       //this should decrease the position / upvotes and downvotes on the track
+      track.vote--
+      api.put('playlist/songs/' + track._id, track)
+        .then(result => {
+          dispatch("getMyTunes")
+        })
     }
 
   }

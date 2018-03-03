@@ -39,7 +39,7 @@
 </script>
 
 
-<style>
+<style scoped>
   div {
     background-color: rgb(183, 199, 224);
   }

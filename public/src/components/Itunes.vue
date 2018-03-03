@@ -3,7 +3,7 @@
         <div class="col-sm-12 flex2">
             <h1>iTunes Search&nbsp;&nbsp;</h1>
             <form class="d-flex align-items-center" @submit.prevent="getMusicByArtist">
-                <input type="text" name="artist" v-model="artist" class="form-control">
+                <input type="text" name="artist" v-model="artist" class="form-control" placeholder="Artist">
                 <button type="submit" class="btn btn-dark">Search</button>
             </form>
         </div>
@@ -13,16 +13,16 @@
                     <img :src="Itune.artworkUrl100" class="album">
                 </div>
                 <div class="song">
-                    <h5>{{Itune.trackName}}</h5>
-                    <h6>{{Itune.artistName}}</h6>
-                    <p>{{Itune.collectionName}}</p>
+                    <h5 class="shadow">{{Itune.trackName}}</h5>
+                    <h6 class="shadow">{{Itune.artistName}}</h6>
+                    <p class="shadow">{{Itune.collectionName}}</p>
                     <div class="flex2">
                         <i class="fas fa-headphones btn-primary btn" @click="Itune.trackId = true"></i>
                         <div v-if="Itune.trackId == true" class="preview d-flex align-items-start">
                             <audio controls>
                                 <source :src="Itune.previewUrl" type="audio/mpeg">
                             </audio>
-                            <i class="fas fa-times-circle x" @click="Itune.trackId = false"></i>
+                            <i class="fas fa-times btn btn-dark x" @click="Itune.trackId = false"></i>
                         </div>
                     </div>
                 </div>
@@ -94,10 +94,13 @@
         transition: all .3s linear
     }
 
+    .shadow {
+        text-shadow: 3px 2px 5px rgba(150, 150, 150, .7);
+    }
+
     .song {
         display: flex;
         flex-direction: column;
-        text-shadow: 3px 2px 5px rgba(150, 150, 150, .7);
     }
 
     .album {
@@ -106,12 +109,19 @@
     }
 
     audio {
-        width: 200px;
+        width: 100px;
         -webkit-text-fill-color: rgb(183, 199, 224)
     }
 
     .btn-primary {
-        height: 32px
+        height: 32px;
+        margin-bottom: 10px
+    }
+
+    .fa-times {
+        height: 32px;
+        margin-left: 0;
+        margin-bottom: 15px;
     }
 
     .addSong {

@@ -8,7 +8,8 @@ var schema = new Schema({
     artistName: { type: String, required: true },
     collectionName: { type: String, required: true },
     artworkUrl100: {type: String, required: true},
-    previewUrl: {type: String, required: true}
+    previewUrl: {type: String, required: true},
+    vote: {type: Number, default: 0}
     // playlistId: { type: ObjectId, ref: "Playlist", required: true }
 })
 
