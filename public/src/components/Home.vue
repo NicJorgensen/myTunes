@@ -1,8 +1,8 @@
 <template>
   <div class="home container-fluid">
     <div class="row">
-      <div class="col-sm-12 text-center">
-        <h1 class="title">myTunes</h1>
+      <div class="col-sm-12 text-center black">
+        <img src="./assets/myTunes_logo.jpg">
       </div>
       <div class="buttons col-sm-12">
         <button class="btn btn-block btn-primary" @click="showItunes = true">iTunes</button>
@@ -44,13 +44,22 @@
     background-color: rgb(183, 199, 224);
   }
 
-  .title {
-    font-weight: 900;
-    color: white;
-    text-shadow: 3px 2px 1px rgba(150, 150, 150, 1);
+  .black {
+    background-color: black
   }
 
-  .btn {
-    font-weight: 700
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-around;
+    background: linear-gradient(to top, rgb(183, 199, 224), black)
+  }
+
+  .btn-block {
+    height: 50px;
+    width: 40%;
+    font-family: work sans;
+    font-size: 25px
   }
 </style>

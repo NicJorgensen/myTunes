@@ -66,8 +66,10 @@
 
 <style scoped>
     h1 {
-        text-shadow: 3px 2px 1px rgba(150, 150, 150, 1);
-        font-weight: 700
+        text-shadow: 3px 2px 3px rgba(150, 150, 150, 1);
+        font-weight: 700;
+        font-family: Work Sans;
+        margin-top: 20px 
     }
 
     .preview {
@@ -89,12 +91,15 @@
         margin-left: 2px;
         cursor: pointer;
         opacity: .7;
-        transition: all .2s linear
+        transition: all .2s linear;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px
     }
 
     .x:hover {
         opacity: 1;
-        transition: all .3s linear
+        transition: all .3s linear;
+        background-color: rgb(221, 46, 46)
     }
 
     .shadow {
@@ -144,6 +149,10 @@
     .fas:hover {
         opacity: 1;
         transition: all .3s linear
+    }
+
+    .fa-minus-circle:hover {
+        color: rgb(221, 46, 46)
     }
 
     .vote {

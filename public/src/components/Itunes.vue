@@ -1,8 +1,8 @@
 <template>
     <div class="itunes row">
         <div class="col-sm-12 flex2">
-            <h1>iTunes Search&nbsp;&nbsp;</h1>
-            <form class="d-flex align-items-center" @submit.prevent="getMusicByArtist">
+            <h1 class="flex2">iTunes Search&nbsp;&nbsp;</h1>
+            <form class="flex2" @submit.prevent="getMusicByArtist">
                 <input type="text" name="artist" v-model="artist" class="form-control" placeholder="Artist">
                 <button type="submit" class="btn btn-dark">Search</button>
             </form>
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="addSong">
-                <i class="fas fa-plus-circle" @click="addToMyTunes(Itune)"></i>
+                <i class="fas fa-plus-circle" @click="addToMyTunes(Itune), opacity = 0"></i>
             </div>
         </div>
         <div class="col-sm-12 footer"></div>
@@ -63,8 +63,10 @@
 
 <style scoped>
     h1 {
-        text-shadow: 3px 2px 1px rgba(150, 150, 150, 1);
-        font-weight: 700
+        text-shadow: 3px 2px 3px rgba(150, 150, 150, 1);
+        font-weight: 700;
+        font-family: Work Sans;
+        margin-top: 20px 
     }
 
     .preview {
@@ -79,19 +81,23 @@
 
     .flex2 {
         display: flex;
-        flex-direction: row
+        flex-direction: row;
+        align-items: center
     }
 
     .x {
         margin-left: 2px;
         cursor: pointer;
         opacity: .7;
-        transition: all .2s linear
+        transition: all .2s linear;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px
     }
 
     .x:hover {
         opacity: 1;
-        transition: all .3s linear
+        transition: all .3s linear;
+        background-color: rgb(221, 46, 46)
     }
 
     .shadow {
